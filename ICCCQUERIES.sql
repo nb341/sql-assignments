@@ -310,68 +310,13 @@ select EMPLOYEE_ID, SURNAME, FIRSTNAME, SALARY
 from faculty
 where SALARY>49500;
 
-select Student_id 
-from course_registration
-where grade > 
-(select grade 
-from course_registration
-where course_code = 'ACCT210' AND student_id = '002502060');
-
-select BIRTHDATE
-from faculty
-where birthdate = 
-                 (select BIRTHDATE
-                  from faculty
-                  where firstname = 'Clifford' and surname = 'James');   
-
 select firstname, surname
 from faculty
-where unit_no = 
-(select unit_no
+where unit = 
+(select unit 
 from faculty
 where firstname =
-'Plane' AND surname = 'Robert');
-
-select avg(birthdate/12)
-        as average_birthdat
-from faculty
-where unit_no is not null;  
-
-select count(*)
-from faculty
-where unit_no is not null;
-
-select a.student_id, firstname, surname, AVG(grade)
-from student a, course_registration b
-where a.student_id = b.student_id
-AND year = '1993'
-Group by a.student_id, firstname, surname
-Having count(*) >=2;
-
-select student_id , semester, year, AVG(grade)
-from course_registration
-where year = '1993' 
-and '1994';
-
-select avg(grade) as average_grade
-from course_registration
-where course_code = 'CMPP230';
-
-select max(grade)
-As highest_mark
-from course_registration;
-
-Select a.course_code , COURSE_TITLE
-from course a , course_registration b 
-where a.COURSE_CODE = b.COURSE_CODE
-AND grade > 
-(select MAX(grade)
-from course_registration);
-
-select unit_name , count(*)
-from faculty a , organizational_unit b
-where a.unit_no = b.unit_no
-group by unit_name;
+'Joseph' AND surname = 'Ullman');
 
 
 
